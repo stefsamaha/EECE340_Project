@@ -10,8 +10,8 @@ fs1 = 0.5 * 2 * f0; % 0.5 times the Nyquist rate
 fs2 = 2 * 2 * f0;   % 2 times the Nyquist rate
 
 % Sample the signal at fs1 and fs2
-[t_sample1, x_sample1] = mySample(t, xt, fs1);
-[t_sample2, x_sample2] = mySample(t, xt, fs2);
+[t_sample1, x_sample1] = sample(t, xt, fs1);
+[t_sample2, x_sample2] = sample(t, xt, fs2);
 
 % Plotting
 figure;
