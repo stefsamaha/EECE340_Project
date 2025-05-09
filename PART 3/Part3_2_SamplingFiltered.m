@@ -3,9 +3,9 @@
 % ===========================================================
 
 % ---------- 1.  Load audio and extract 1‑s segment ----------
-[x, Fs] = audioread('my_audio.wav');
+[x, Fs] = audioread('340audio.wav');
 x = x(:,1)';                         % mono → row vector
-dur = 1;                             % 1‑second segment
+dur = 0.10;                             % 1‑second segment
 N   = Fs*dur;
 x_seg = x(1:N);
 t    = (0:N-1)/Fs;
