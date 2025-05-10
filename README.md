@@ -85,8 +85,8 @@ Functions are tested on:
 
 ## Contribution Statement
 
-- **Reind Ballout**: Implemented Fourier and sampling functions, wrote Part 1 and Part 2 scripts.
-- **Stefanie Samaha**: Developed Part 3 (filtering and noise analysis), contributed to plotting and debugging.
+- **Stefanie Samaha**: Implemented Fourier and sampling functions, wrote Part 1 and Part 2 scripts.
+- **Reind Ballout**: Developed Part 3 (filtering and noise analysis), contributed to plotting and debugging.
 
 Both contributors collaborated on the report, demo video, and presentation.
 
