@@ -1,26 +1,22 @@
-% ===========================================================
-% EECE 340 - Part 3.1: FIR Filtering and System Design
-% ===========================================================
-
-% --- Step 1: Load the audio signal again ---
+% Loading the audio
 [x, Fs] = audioread('340audio.wav');
 x = x(:, 1)';  % Mono, row vector
 clipDur = 0.10;                       % seconds
 N       = round(clipDur * Fs);        % samples in 0.10 s
 x       = x(1:N);         
 
-% --- Step 2: Define filter parameters ---
+% Filter parameters
 fc = 2000;           % Cutoff frequency in Hz
 M = 101;             % Filter length (odd number, e.g., 101 taps)
 wc = 2 * pi * fc / Fs;     % Normalized angular cutoff
 n = -(M-1)/2 : (M-1)/2;    % Symmetric time vector centered at 0
 
-% --- Step 3: Design windowed sinc FIR filter ---
+% Design the windowed sinc FIR filter
 h = (wc/pi) * sinc(wc * n / pi);     % Ideal LPF impulse response
 window = hann(M)';                   % Apply Hann window
 h = h .* window;                     % Final FIR filter coefficients
 
-% --- Step 4: Plot impulse and frequency response ---
+% Plot impulse and frequency response
 figure;
 subplot(2,1,1);
 stem(n, h, 'filled');
@@ -34,10 +30,10 @@ title('Magnitude Response of FIR Filter');
 xlabel('Frequency (Hz)'); ylabel('|H(f)|');
 grid on;
 
-% --- Step 5: Filter the audio signal ---
+% Filter the audio signal
 x_filtered = conv(x, h, 'same');  % Apply FIR filter via convolution
 
-% --- Step 6: Time-domain comparison ---
+% Time-domain comparison
 t = (0:length(x)-1)/Fs;
 
 figure;
@@ -51,7 +47,7 @@ plot(t, x_filtered);
 title('Filtered Audio Signal (Low-pass FIR)');
 xlabel('Time (s)'); ylabel('Amplitude');
 
-% --- Step 7: Frequency-domain comparison ---
+% Frequency-domain comparison
 T  = t(end) - t(1);                               % same duration
 N  = length(x);                                   % number of samples
 t_shifted = linspace(-T/2, T/2, N);               % force symmetry
@@ -67,11 +63,11 @@ title('Fourier Transform Comparison');
 xlabel('Frequency (Hz)'); ylabel('|X(f)|');
 grid on;
 
-% --- after you finish designing h ---
+% after we finish designing h
 Nh = (length(h)-1)/2;                % 50 for M = 101
 hc = [h(Nh+1:end)  h(1:Nh)];         % causal coefficients  h[0]…h[100]
 
-%if you want to visualize the whole transfer function uncomment the below
+%if we want to visualize the whole transfer function we can uncomment the below
 %syms z
 %Hsym = poly2sym(hc, z);              % polynomial in z
 %Hsym = subs(Hsym, z, z^(-1));        % express in z^{-1}

@@ -1,9 +1,5 @@
 function [t_sample, x_sample] = sample(t, xt, fs)
-% ================================
-% EECE 340 Project - Part 2.1: Sampling
-% ================================
 
-% --------- Sampling Function ---------
     % Samples a given signal xt at time vector t with a sampling frequency fs
 
     % Calculate the sampling interval

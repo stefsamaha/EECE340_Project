@@ -1,5 +1,3 @@
-% EECE 340 - Part 2.3: Aliasing and Ambiguity
-
 % Time vector for visualization (high resolution)
 t = 0:0.001:1;  % 1 second duration
 
@@ -46,21 +44,3 @@ title('Aliased Signal Comparison at f_s = 8 Hz');
 xlabel('Time (s)');
 ylabel('Amplitude');
 grid on;
-
-% ---------------------------------------------------------------
-% This script demonstrates the concept of aliasing by sampling 
-% x(t) = cos(2π·5t) at a rate of fs = 8 Hz. It shows that another 
-% signal, x(t) = cos(2π·13t), produces the exact same sampled 
-% values when sampled at this rate due to aliasing. This occurs 
-% because 13 Hz and 5 Hz differ by a multiple of the sampling 
-% frequency (fs), so they are aliases: 
-%     |13 - 8| = 5 Hz.
-%
-% By comparing the samples of both signals, we observe that 
-% they overlap perfectly, creating ambiguity in signal identity 
-% based on samples alone. 
-% This ambiguity can be resolved only if we assume prior 
-% knowledge, such as that the original signal is bandlimited 
-% (e.g., to below Nyquist frequency fs/2), which would rule out 
-% the higher-frequency alternative.
-% ---------------------------------------------------------------

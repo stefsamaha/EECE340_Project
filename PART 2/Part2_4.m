@@ -1,8 +1,5 @@
-% ============================
-% EECE 340 - Part 2.4: Noise Robustness
-% ============================
 
-% --- Signal setup ---
+% Signal, initial setup
 f = 5;                          % Signal frequency (Hz)
 T_total = 2;                    % Total duration (s)
 t_fine = 0:0.001:T_total;       % Fine time vector for "continuous" signal
@@ -37,13 +34,3 @@ for i = 1:length(fs_values)
     grid on;
 end
 
-% ---------------------------------------------------------------
-% This script demonstrates the impact of additive white Gaussian noise
-% on sinc-based signal reconstruction. A 5 Hz cosine wave is sampled 
-% at two different rates — 10 Hz (near Nyquist) and 30 Hz (oversampled).
-% Gaussian noise (σ = 0.3) is added to each sample before applying 
-% sinc interpolation. Results show that higher sampling rates improve 
-% reconstruction robustness by reducing interpolation error in noisy 
-% conditions. Oversampling thus serves as an effective strategy for 
-% noise mitigation in digital signal processing.
-% ---------------------------------------------------------------
